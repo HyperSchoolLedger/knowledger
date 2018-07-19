@@ -1,9 +1,20 @@
 version: '3'
 
 services:
-  tests:
+  
+  # tests:
+  #   build:
+  #     context: .
+  #     dockerfile: golang.dockerfile
+  #   command: go test
+
+  api:
     build:
       context: .
-      dockerfile: golang.dockerfile
-    command: go test
+      dockerfile: api.dockerfile
+    command: go run app.go
+    ports:
+      - 3000:3000
+
+  
     
